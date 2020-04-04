@@ -51,3 +51,25 @@ Ionic CLI can build the frontend into static HTML/CSS/JavaScript files. These fi
 ionic build
 ```
 ***
+
+### Building the container images using docker-compose
+1. Build the images: ```docker-compose -f docker-compose-build.yaml build --parallel```
+2. Push the images: ```docker-compose -f docker-compose-build.yaml push```
+3. Run the container: ```docker-compose up```
+
+### Creating Kubernetes cluster using eksctl
+1. Install eksctl
+2. eksctl create cluster
+
+### Deploying the deployments to a Kubernetes cluster
+kubectl apply -f udacity-c3-deployment/k8s
+
+### Port forward the ports to your localhost
+kubectl port-forward deployment/frontend 8100:80
+kubectl port-forward deployment/reverseproxy 8080:8080 
+
+### Docker Hub Images
+https://hub.docker.com/r/ychbbq/udacity-frontend
+https://hub.docker.com/r/ychbbq/udacity-restapi-feed
+https://hub.docker.com/r/ychbbq/udacity-restapi-user
+https://hub.docker.com/r/ychbbq/reverseproxy
